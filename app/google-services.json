@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "388016261840",
+    "firebase_url": "https://biddyv3.firebaseio.com",
+    "project_id": "biddyv3",
+    "storage_bucket": "biddyv3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:388016261840:android:cb1929bdae35f168",
+        "android_client_info": {
+          "package_name": "com.example.user.biddyv3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "388016261840-fth92d6c2s9b4oovrgjdn6jmad3gqfvr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAk7nBMRG9c-99gF9f3f1s2anFm8T8X51k"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
