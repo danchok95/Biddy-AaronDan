@@ -18,14 +18,6 @@ import java.util.List;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    public static final String USER_ID = ".userID";
-    public static final String USERNAME = ".username";
-    public static final String NAME = ".name";
-    public static final String EMAIL_ADD = ".emailAddress";
-    public static final String PASSWORD = ".password";
-    public static final String CONTACT_NO = ".contactNo";
-    public static final String ADDRESS = ".address";
-
     EditText editTextUsername, editTextName, editTextEmail, editTextPassword, editTextContact, editTextAddress;
     Button buttonSignup;
     TextView textViewSignin;
@@ -39,7 +31,7 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        //getting the reference of artists node
+        //getting the reference of users node
         databaseUser = FirebaseDatabase.getInstance().getReference("users");
 
         //getting views
@@ -52,8 +44,8 @@ public class RegisterActivity extends AppCompatActivity {
         buttonSignup = (Button) findViewById(R.id.buttonSignup);
         textViewSignin = (TextView) findViewById(R.id.textViewSignin);
 
-        //list to store artists
-        users = new ArrayList<>();
+        //list to store users
+        users = new ArrayList<>(); //should be in login, not used here.
 
         //adding an onclicklistener to button
         buttonSignup.setOnClickListener(new View.OnClickListener() {
@@ -86,13 +78,13 @@ public class RegisterActivity extends AppCompatActivity {
         if (!TextUtils.isEmpty(name)) {
 
             //getting a unique id using push().getKey() method
-            //it will create a unique id and we will use it as the Primary Key for our Artist
+            //it will create a unique id and we will use it as the Primary Key for our User
             String userID = databaseUser.push().getKey();
 
-            //creating an Artist Object
+            //creating an User Object
             User users = new User (userID, username, name, emailAddress, password, contactNO, address);
 
-            //Saving the Artist
+            //Saving the User
             databaseUser.child(userID).setValue(users);
 
             //setting edittext to blank again
@@ -107,7 +99,7 @@ public class RegisterActivity extends AppCompatActivity {
             Toast.makeText(this, "User added", Toast.LENGTH_LONG).show();
 
             finish();
-            startActivity(new Intent(getApplicationContext(), RegisterActivity.class));
+            startActivity(new Intent(getApplicationContext(), LoginActivity.class));
 
         } else {
             //if the value is not given displaying a toast
