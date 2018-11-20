@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -48,13 +48,13 @@
             android:text="Login" />
 
         <TextView
-            android:text="Don't have an account yet? Register Here"
             android:id="@+id/textViewSignUp"
-            android:textAlignment="center"
-            android:layout_margin="15dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:text="Don't have an account yet? Register Here"
+            android:textAlignment="center" />
 
     </LinearLayout>
 
-</RelativeLayout>
+</ScrollView>

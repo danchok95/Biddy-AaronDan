@@ -49,11 +49,16 @@ public class LoginActivity extends AppCompatActivity {
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (view == buttonLogin) {
+                if(view == buttonLogin){
                     validateLogin();
                 }
+            }
+        });
 
-                if (view == textViewSignUp) {
+        textViewSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(view == textViewSignUp){
                     finish();
                     startActivity(new Intent(getApplicationContext(), RegisterActivity.class));
                 }
@@ -93,34 +98,32 @@ public class LoginActivity extends AppCompatActivity {
         //getting the login input values
         String usernameIn = editTextUsername.getText().toString().trim();
         String passwordIn = editTextPassword.getText().toString().trim();
+        Boolean isFound = false;
 
         for (int x=0; x<userList.size(); x++) {
             String username = userList.get(x).getUsername();
             String password = userList.get(x).getPassword();
 
-            System.out.println(username);
-            System.out.println(password);
+//            System.out.println(email);
+//            System.out.println(password);
 
-            if (usernameIn.equals(username)) {
-
-                if (passwordIn.equals(password)) {
-                    Toast.makeText(this, "Login successful!", Toast.LENGTH_SHORT).show();
-                    finish();
-                    startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
-                } else {
-                    Toast.makeText(this, "Wrong password!", Toast.LENGTH_SHORT).show();
-                }
-            } else {
-                Toast.makeText(this, "Please enter username!", Toast.LENGTH_SHORT).show();
+            if (usernameIn.isEmpty()) {
+                Toast.makeText(this, "Please enter your username!", Toast.LENGTH_SHORT).show();
+                break;
             }
-
-            /*if (usernameIn == username) {
-                //displaying a success toast
-                Toast.makeText(this, "Login successful!", Toast.LENGTH_LONG).show();
-            } else {
-                //displaying a success toast
-                Toast.makeText(this, "Error!", Toast.LENGTH_LONG).show();
-            }*/
+            if (passwordIn.isEmpty()) {
+                Toast.makeText(this, "Please enter your password!", Toast.LENGTH_SHORT).show();
+                break;
+            }
+            if (usernameIn.equals(username) && passwordIn.equals(password)) {
+                isFound = true;
+                break;
+            }
+        }
+        if (isFound == true) {
+            Toast.makeText(this, "Login successful!", Toast.LENGTH_SHORT).show();
+            finish();
+            startActivity(new Intent(getApplicationContext(), HomeActivity.class));
         }
     }
 }

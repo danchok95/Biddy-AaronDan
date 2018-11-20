@@ -54,10 +54,14 @@ public class RegisterActivity extends AppCompatActivity {
                 if (view == buttonSignup) {
                     addUser();
                 }
+            }
+        });
 
+        textViewSignin.setOnClickListener(new View. OnClickListener(){
+            public void onClick(View view) {
                 if (view == textViewSignin) {
                     finish();
-                    startActivity(new Intent(getApplicationContext(), RegisterActivity.class));
+                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                 }
             }
         });
