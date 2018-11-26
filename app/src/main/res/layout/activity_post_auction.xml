@@ -29,9 +29,26 @@
             android:layout_gravity="left"
             />
 
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_below="@id/postAuctionLabel"
+            android:layout_centerHorizontal="true"/>
+
+        <Button
+            android:id="@+id/pickPicBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imageView"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="1"
+            android:text="Upload an image"
+            android:layout_marginBottom="30dp"/>
+
         <TextView
             android:id="@+id/itemDetailsLabel"
-            android:layout_below="@+id/postAuctionLabel"
+            android:layout_below="@+id/pickPicBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="3dp"
