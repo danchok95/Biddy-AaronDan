@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -20,7 +21,7 @@ import java.util.List;
 
 public class PostAuction extends AppCompatActivity {
 
-    EditText editTextTitle, editTextBrand, editTextModel, editTextDesc, editTextStartPrice, editTextMinBid;
+    EditText editTextTitle, editTextBrand, editTextModel, editTextDesc, editTextStartPrice, editTextMinBid, editTextBINPrice;
     Button continueBtn;
     Spinner spinnerCondition, spinnerDays, spinnerHours;
     String condition;
@@ -35,6 +36,8 @@ public class PostAuction extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_auction);
 
+        getSupportActionBar().hide();
+
         //getting the reference of users node
         databaseAuctionDraft = FirebaseDatabase.getInstance().getReference("auctionDrafts");
 
@@ -45,10 +48,16 @@ public class PostAuction extends AppCompatActivity {
         editTextDesc = (EditText) findViewById(R.id.editTextDesc);
         editTextStartPrice = (EditText) findViewById(R.id.editTextStartPrice);
         editTextMinBid = (EditText) findViewById(R.id.editTextMinBid);
+        editTextBINPrice = findViewById(R.id.editTextBINPrice);
         continueBtn = (Button) findViewById(R.id.continueBtn);
         spinnerCondition = (Spinner) findViewById(R.id.spinnerCondition);
         spinnerDays = (Spinner) findViewById(R.id.spinnerDays);
         spinnerHours = (Spinner) findViewById(R.id.spinnerHours);
+        CheckBox BINcheck = (CheckBox) findViewById(R.id.BINcheck);
+        BINcheck.setChecked(false);
+        editTextBINPrice.setEnabled(false);
+        editTextBINPrice.setFocusable(false);
+        editTextBINPrice.setFocusableInTouchMode(false);
 
 
         //list to store users
@@ -60,6 +69,26 @@ public class PostAuction extends AppCompatActivity {
             public void onClick(View view) {
                 if (view == continueBtn) {
                     continueDraft();
+                }
+            }
+        });
+
+        BINcheck.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean checked = ((CheckBox) v).isChecked();
+                // Check which checkbox was clicked
+                if (checked){
+                    // Do your coding
+                    editTextBINPrice.setEnabled(true);
+                    editTextBINPrice.setFocusable(true);
+                    editTextBINPrice.setFocusableInTouchMode(true);
+                }
+                if (!checked){
+                    // Do your coding
+                    editTextBINPrice.setEnabled(false);
+                    editTextBINPrice.setFocusable(false);
+                    editTextBINPrice.setFocusableInTouchMode(false);
                 }
             }
         });
@@ -152,6 +181,7 @@ public class PostAuction extends AppCompatActivity {
         Double startingPrice = Double.parseDouble(startingPricE);
         String minBidIncR = editTextMinBid.getText().toString().trim();
         int minBidIncr = Integer.parseInt(minBidIncR);
+        String BINprice = editTextBINPrice.getText().toString().trim();
         int days = this.days;
         int hours = this.hours;
 
@@ -165,7 +195,7 @@ public class PostAuction extends AppCompatActivity {
             String auctionID = databaseAuctionDraft.push().getKey();
 
             //creating an Auction Draft Object
-            AuctionDraft auctionDraft = new AuctionDraft (auctionID, title, brand, model, condition, description, startingPrice, minBidIncr, days, hours);
+            AuctionDraft auctionDraft = new AuctionDraft (auctionID, title, brand, model, condition, description, startingPrice, minBidIncr, BINprice, days, hours);
 
             //Saving the Auction Draft
             databaseAuctionDraft.child(auctionID).setValue(auctionDraft);
@@ -177,18 +207,18 @@ public class PostAuction extends AppCompatActivity {
             editTextDesc.setText("");
             editTextStartPrice.setText("");
             editTextMinBid.setText("");
+            editTextBINPrice.setText("");
+
 
             //displaying a success toast
             Toast.makeText(this, "Auction drafted", Toast.LENGTH_SHORT).show();
 
             finish();
-            startActivity(new Intent(getApplicationContext(), AuctionPostSummary.class));
+            startActivity(new Intent(getApplicationContext(), HomeActivity.class));
 
         } else {
             //if the value is not given displaying a toast
             Toast.makeText(this, "Please fill up the auction form", Toast.LENGTH_SHORT).show();
         }
     }
-
-
 }

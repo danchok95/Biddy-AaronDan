@@ -31,6 +31,8 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        getSupportActionBar().hide();
+
         //getting the reference of users node
         databaseUser = FirebaseDatabase.getInstance().getReference("users");
 
