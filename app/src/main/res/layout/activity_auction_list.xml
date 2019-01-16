@@ -11,7 +11,11 @@
         xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:id="@+id/cardView"
         android:layout_width="match_parent"
+<<<<<<< HEAD
         android:layout_height="120dp"
+=======
+        android:layout_height="80dp"
+>>>>>>> cb6b3c0e5312e5847c4b669ef1e8c483a4e041fe
         android:layout_margin="8dp"
         card_view:cardCornerRadius="5dp">
 
