@@ -107,6 +107,7 @@ public class HomeActivity extends AppCompatActivity {
                         startActivity(new Intent(getApplicationContext(), HomeActivity.class));
                         return true;
                     case R.id.postAuction:
+<<<<<<< HEAD
                         Toast.makeText(HomeActivity.this, "Going to post auction", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(getApplicationContext(), PostAuction.class));
                         return true;
@@ -114,6 +115,11 @@ public class HomeActivity extends AppCompatActivity {
                         Toast.makeText(HomeActivity.this, "Going to listings", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(getApplicationContext(), MyListings.class));
                         return true;
+=======
+                        Toast.makeText(HomeActivity.this, "Going to auction", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(getApplicationContext(), PostAuction.class));
+                        return true;
+>>>>>>> cb6b3c0e5312e5847c4b669ef1e8c483a4e041fe
                     case R.id.logout:
                         Toast.makeText(HomeActivity.this, "Logged out!", Toast.LENGTH_SHORT).show();
                         finish();
