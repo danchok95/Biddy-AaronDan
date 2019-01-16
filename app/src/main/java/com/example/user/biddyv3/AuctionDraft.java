@@ -2,13 +2,13 @@ package com.example.user.biddyv3;
 
 public class AuctionDraft {
 
-    private String auctionID, title, brand, model, condition, description;
+    private String auctionID, title, brand, model, condition, description, BINprice;
     private Integer minBidIncr, days, hours;
     private double startingPrice;
 
     public AuctionDraft() {}
 
-    public AuctionDraft(String auctionID, String title, String brand, String model, String condition, String description, double startingPrice, Integer minBidIncr, Integer days, Integer hours) {
+    public AuctionDraft(String auctionID, String title, String brand, String model, String condition, String description, double startingPrice, Integer minBidIncr, String BINprice, Integer days, Integer hours) {
         this.auctionID = auctionID;
         this.title = title;
         this.brand = brand;
@@ -17,6 +17,7 @@ public class AuctionDraft {
         this.description = description;
         this.minBidIncr = minBidIncr;
         this.startingPrice = startingPrice;
+        this.BINprice = BINprice;
         this.days = days;
         this.hours = hours;
     }
@@ -48,6 +49,8 @@ public class AuctionDraft {
     }
 
     public double getStartingPrice() { return startingPrice; }
+
+    public String getBINprice() { return BINprice; }
 
     public Integer getDays() { return days; }
 

@@ -29,7 +29,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeActivity extends AppCompatActivity {
+public class MyListings extends AppCompatActivity {
 
     private DrawerLayout dl;
     private ActionBarDrawerToggle t;
@@ -103,19 +103,19 @@ public class HomeActivity extends AppCompatActivity {
                 switch(id)
                 {
                     case R.id.home:
-                        Toast.makeText(HomeActivity.this, "Home", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MyListings.this, "Home", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(getApplicationContext(), HomeActivity.class));
                         return true;
                     case R.id.postAuction:
-                        Toast.makeText(HomeActivity.this, "Going to post auction", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MyListings.this, "Going to auction", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(getApplicationContext(), PostAuction.class));
                         return true;
                     case R.id.myListings:
-                        Toast.makeText(HomeActivity.this, "Going to listings", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MyListings.this, "Going to listings", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(getApplicationContext(), MyListings.class));
                         return true;
                     case R.id.logout:
-                        Toast.makeText(HomeActivity.this, "Logged out!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MyListings.this, "Logged out!", Toast.LENGTH_SHORT).show();
                         finish();
                         startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                         return true;
@@ -146,7 +146,7 @@ public class HomeActivity extends AppCompatActivity {
                 }
 
                 //creating adapter
-                AuctionList auctionAdapter = new AuctionList(HomeActivity.this, auctionDrafts);
+                AuctionList auctionAdapter = new AuctionList(MyListings.this, auctionDrafts);
                 //attaching adapter to the listview
                 listViewAuctions.setAdapter(auctionAdapter);
             }

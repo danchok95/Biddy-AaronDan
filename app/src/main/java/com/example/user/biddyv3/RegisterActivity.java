@@ -31,6 +31,8 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        getSupportActionBar().hide();
+
         //getting the reference of users node
         databaseUser = FirebaseDatabase.getInstance().getReference("users");
 
@@ -74,7 +76,6 @@ public class RegisterActivity extends AppCompatActivity {
         String emailAddress = editTextEmail.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
         String contactNo = editTextContact.getText().toString().trim();
-        int contactNO = Integer.parseInt(contactNo);
         String address = editTextAddress.getText().toString().trim();
 
 
@@ -86,7 +87,7 @@ public class RegisterActivity extends AppCompatActivity {
             String userID = databaseUser.push().getKey();
 
             //creating an User Object
-            User users = new User (userID, username, name, emailAddress, password, contactNO, address);
+            User users = new User (userID, username, name, emailAddress, password, contactNo, address);
 
             //Saving the User
             databaseUser.child(userID).setValue(users);
@@ -100,14 +101,14 @@ public class RegisterActivity extends AppCompatActivity {
             editTextAddress.setText("");
 
             //displaying a success toast
-            Toast.makeText(this, "User added", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "You are now registered!", Toast.LENGTH_SHORT).show();
 
             finish();
             startActivity(new Intent(getApplicationContext(), LoginActivity.class));
 
         } else {
             //if the value is not given displaying a toast
-            Toast.makeText(this, "Please complete the register form", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Please complete the register form", Toast.LENGTH_SHORT).show();
         }
     }
 }

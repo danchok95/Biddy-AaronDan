@@ -34,6 +34,8 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        getSupportActionBar().hide();
+
         //getting the reference of users node
         databaseUsers = FirebaseDatabase.getInstance().getReference("users");
 
@@ -111,15 +113,26 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(this, "Please enter your username!", Toast.LENGTH_SHORT).show();
                 break;
             }
-            if (passwordIn.isEmpty()) {
+            if ((passwordIn.isEmpty())) {
                 Toast.makeText(this, "Please enter your password!", Toast.LENGTH_SHORT).show();
                 break;
+            }
+            if (!(usernameIn.isEmpty()) &&  !(passwordIn.isEmpty())) {
+                if (usernameIn.equals(username) && !(passwordIn.equals(password))) {
+                    Toast.makeText(this, "Wrong password!", Toast.LENGTH_SHORT).show();
+                    break;
+                }
+//                if (!(usernameIn.equals(username)) && !(passwordIn.equals(password))) {
+//                    Toast.makeText(this, "User does not exist!", Toast.LENGTH_SHORT).show();
+//                    break;
+//                }
             }
             if (usernameIn.equals(username) && passwordIn.equals(password)) {
                 isFound = true;
                 break;
             }
         }
+
         if (isFound == true) {
             Toast.makeText(this, "Login successful!", Toast.LENGTH_SHORT).show();
             finish();

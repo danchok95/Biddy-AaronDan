@@ -1,9 +1,225 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="20dp"
     tools:context=".AuctionPostSummary">
 
-</android.support.constraint.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/title"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:padding="5dp"
+            android:layout_marginBottom="15dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/brand"
+            android:layout_below="@+id/title"
+            android:textSize="15dp"
+            android:padding="5dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/model"
+            android:layout_below="@+id/brand"
+            android:textSize="15dp"
+            android:paddingLeft="5dp"
+            android:layout_marginBottom="25dp"/>
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/conditionLabel"
+            android:layout_below="@+id/model"
+            android:text="Condition:"
+            android:textSize="15dp"
+            android:padding="5dp"
+            android:layout_marginBottom="20dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/condition"
+            android:layout_toRightOf="@+id/conditionLabel"
+            android:layout_alignBaseline="@+id/conditionLabel"
+            android:textSize="15dp"
+            android:padding="5dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="20dp"/>
+
+        <TextView
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/descLabel"
+            android:layout_below="@+id/conditionLabel"
+            android:text="Description:"
+            android:textSize="15dp"
+            android:padding="5dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/description"
+            android:layout_below="@+id/descLabel"
+            android:textSize="15dp"
+            android:paddingLeft="5dp"
+            android:layout_marginBottom="15dp"/>
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/SPLabel"
+            android:layout_below="@+id/description"
+            android:text="Starting Price:"
+            android:textSize="15dp"
+            android:padding="5dp"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/RM1"
+            android:text="RM"
+            android:layout_toRightOf="@+id/SPLabel"
+            android:layout_alignBaseline="@+id/SPLabel"
+            android:layout_marginLeft="20dp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/startingPrice"
+            android:layout_toRightOf="@+id/RM1"
+            android:layout_alignBaseline="@+id/RM1"
+            android:textSize="15dp"
+            android:padding="5dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"/>
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/MBILabel"
+            android:layout_below="@+id/SPLabel"
+            android:text="Min. bid increment:"
+            android:textSize="15dp"
+            android:padding="5dp"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/RM2"
+            android:text="RM"
+            android:layout_toRightOf="@+id/MBILabel"
+            android:layout_alignBaseline="@+id/MBILabel"
+            android:layout_marginLeft="20dp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/minBidIncr"
+            android:layout_toRightOf="@+id/RM2"
+            android:layout_alignBaseline="@+id/RM2"
+            android:textSize="15dp"
+            android:padding="5dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"/>
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/BINPLabel"
+            android:layout_below="@+id/MBILabel"
+            android:text="Buy-It-Now Price:"
+            android:textSize="15dp"
+            android:padding="5dp"
+            android:layout_marginBottom="15dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/RM3"
+            android:text="RM"
+            android:layout_toRightOf="@+id/BINPLabel"
+            android:layout_alignBaseline="@+id/BINPLabel"
+            android:layout_marginLeft="20dp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/BINprice"
+            android:layout_toRightOf="@+id/RM3"
+            android:layout_alignBaseline="@+id/RM3"
+            android:textSize="15dp"
+            android:padding="5dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/daysLabel"
+            android:layout_below="@+id/BINPLabel"
+            android:text="Days:"
+            android:textSize="15dp"
+            android:padding="5dp"
+            android:layout_marginBottom="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/days"
+            android:layout_toRightOf="@+id/daysLabel"
+            android:layout_alignBaseline="@+id/daysLabel"
+            android:textSize="15dp"
+            android:padding="5dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/hoursLabel"
+            android:layout_toRightOf="@+id/days"
+            android:layout_alignBaseline="@+id/days"
+            android:text="Hours:"
+            android:textSize="15dp"
+            android:padding="5dp"
+            android:layout_marginBottom="25dp"
+            android:layout_marginLeft="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/hours"
+            android:layout_toRightOf="@+id/hoursLabel"
+            android:layout_alignBaseline="@+id/hoursLabel"
+            android:textSize="15dp"
+            android:padding="5dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="10dp" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/deleteBtn"
+            android:layout_below="@+id/hoursLabel"
+            android:text="Delete Auction"/>
+
+    </RelativeLayout>
+
+</ScrollView>

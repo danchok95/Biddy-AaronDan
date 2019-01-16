@@ -5,5 +5,8 @@
         android:title="Home"/>
     <item android:id="@+id/postAuction"
         android:title="Post Auction"/>
-
+    <item android:id="@+id/myListings"
+        android:title="My Listings"/>
+    <item android:id="@+id/logout"
+        android:title="Logout"/>
 </menu>

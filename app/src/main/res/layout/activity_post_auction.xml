@@ -29,9 +29,26 @@
             android:layout_gravity="left"
             />
 
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_below="@id/postAuctionLabel"
+            android:layout_centerHorizontal="true"/>
+
+        <Button
+            android:id="@+id/pickPicBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imageView"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="1"
+            android:text="Upload an image"
+            android:layout_marginBottom="30dp"/>
+
         <TextView
             android:id="@+id/itemDetailsLabel"
-            android:layout_below="@+id/postAuctionLabel"
+            android:layout_below="@+id/pickPicBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="3dp"
@@ -176,16 +193,47 @@
             android:inputType="numberDecimal"
             android:textSize="13dp" />
 
+        <CheckBox
+            android:id="@+id/BINcheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editTextMinBid"
+            android:checked="false"
+            android:text="Buy-It-Now" />
+
+        <TextView
+            android:id="@+id/RMLabel3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/BINcheck"
+            android:layout_toRightOf="@+id/BINcheck"
+            android:text="RM"
+            android:textSize="13dp"
+            android:layout_gravity="left"
+            android:layout_marginLeft="60dp"/>
+
+        <EditText
+            android:id="@+id/editTextBINPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/RMLabel3"
+            android:layout_marginTop="-15dp"
+            android:layout_toRightOf="@+id/RMLabel3"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:textSize="13dp" />
+
         <TextView
             android:id="@+id/durationLabel"
-            android:layout_below="@+id/minBidLabel"
+            android:layout_below="@+id/BINcheck"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:paddingBottom="5dp"
             android:text="Duration:"
             android:textSize="13dp"
-            android:layout_gravity="left"/>
+            android:layout_gravity="left"
+            android:onClick="onCheckboxClicked"/>
 
         <Spinner
             android:id="@+id/spinnerDays"

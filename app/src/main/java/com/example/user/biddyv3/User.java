@@ -2,12 +2,11 @@ package com.example.user.biddyv3;
 
 public class User {
 
-    private String userID, username, name, emailAddress, password, address;
-    private Integer contactNo;
+    private String userID, username, name, emailAddress, password,contactNo, address;
 
     public User() {}
 
-    public User(String userID, String username, String name, String emailAddress, String password, Integer contactNo, String address) {
+    public User(String userID, String username, String name, String emailAddress, String password, String contactNo, String address) {
         this.userID = userID;
         this.username = username;
         this.name = name;
@@ -33,7 +32,7 @@ public class User {
         return password;
     }
 
-    public Integer getContactNo() {
+    public String getContactNo() {
         return contactNo;
     }
 
